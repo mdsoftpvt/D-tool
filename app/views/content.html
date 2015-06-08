@@ -1,0 +1,16 @@
+<div style="position:relative;">
+	<img src="images/1front.jpg" />
+	<div id="dom">
+		<img alt="dunny" id="dunny" src="images/dunny.png" />
+		<img alt="fatcap" id="fatcap" src="images/fatcap.png" />
+		<img alt="piggy" id="piggy" src="images/piggy.png" />
+		<div id="text-box">Lorem <b>ipsum</b> dolor <u>sit</u> amet, consectetur <i>adipisicing</i> elit</div>
+		<svg id="svg-tool" xmlns="http://www.w3.org/2000/svg"></svg>
+	</div>
+</div>
+<button onClick="App.instance.tool.setControls(ControlSet.getStandard()); App.instance.render();">Standard</button>
+<button onClick="App.instance.tool.setControls(ControlSet.getScaler()); App.instance.render();">Scaler</button>
+<button onClick="App.instance.tool.setControls(ControlSet.getScalerWithRotate()); App.instance.render();">Scaler With Rotate</button>
+<button onClick="App.instance.tool.setControls(ControlSet.getUniformScaler()); App.instance.render();">Uniform Scaler</button>
+<button onClick="App.instance.tool.setControls(ControlSet.getDynamic()); App.instance.render();">Dynamic</button>
+<button onClick="App.instance.tool.setControls(App.instance.getCustomControls()); App.instance.render();">Custom</button>
