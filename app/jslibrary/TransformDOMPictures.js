@@ -1,15 +1,14 @@
 function App(){
-	
+	 
 	this.dom = document.getElementById("dom");
 	var toolElem = document.getElementById("svg-tool");
 	this.tool = new DOMTransformTool(toolElem);
 	
-	this.displayList = [
-		
-		new Picture(document.getElementById("fatcap"),150,100),
-		new Picture(document.getElementById("piggy"),300,200),
-		new Picture(document.getElementById("text-box"),450,300),
-		new Picture(document.getElementById("dunny"),100,40),
+	this.displayList = [		
+		// new Picture(document.getElementById("fatcap"),150,100),
+		// new Picture(document.getElementById("piggy"),300,200),
+		// new Picture(document.getElementById("text-box"),450,300),
+		// new Picture(document.getElementById("dunny"),100,40),
 	];
 	toolElem.style.zIndex = this.displayList.length;
 	
@@ -23,7 +22,29 @@ function App(){
 	// draws initial screen
 	this.render();
 }
-
+//
+App.prototype.addArt = function(id){
+	this.displayList.push(new Picture(document.getElementById(id),150,100))
+	this.refresh()
+}
+//
+App.prototype.refresh = function(){ 
+	// draws initial screen
+	var toolElem = document.getElementById("svg-tool");
+	toolElem.style.zIndex = 9999//this.displayList.length;
+	this.render();
+}
+//
+// App.addArt = function(id){  
+// 	App.instance = new App();
+// 	App.instance.addArt(id)
+// }
+// //
+// App.refresh = function(){  
+// 	App.instance = new App();
+// 	App.instance.refresh()
+// }
+//
 App.create = function(){
 	App.instance = new App();
 	return App.instance;
@@ -199,6 +220,7 @@ App.prototype.render = function(){
 App.prototype.drawDisplayList = function(){
 	var i = 0;
 	var n = this.displayList.length;
+	console.log("N " + n)
 	for (i=0; i<n; i++){
 		this.displayList[i].image.style.zIndex = i;
 		this.displayList[i].draw();

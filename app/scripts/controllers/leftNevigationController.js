@@ -22,5 +22,13 @@ angular.module('app')
 	 	{	icon: "[...]/firefox-icon.png...",	name: "Firefox",	maker: "Mozilla Foundation",	ticked: true	}
 	];
 
+	$scope.addArtOnStage = function()
+	{
+		var tempId = "img" +  Math.random() * 1000
+		var myEl = angular.element( document.querySelector( '#dom' ) );
+		myEl.prepend ('<img alt="dunny" id="'+tempId+'" src="images/dunny.png" />');   
+		App.instance = App.create();
+		App.instance.addArt(tempId); 
+	}	
 
   });
