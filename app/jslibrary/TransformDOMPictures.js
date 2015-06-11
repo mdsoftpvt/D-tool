@@ -28,6 +28,10 @@ App.prototype.addArt = function(id){
 	this.refresh()
 }
 //
+App.prototype.deSelect = function(id){
+	this.tool.setTarget(null);
+}
+//
 App.prototype.refresh = function(){ 
 	// draws initial screen
 	var toolElem = document.getElementById("svg-tool");
@@ -199,8 +203,7 @@ App.prototype.selectImage = function(x, y){
 				this.displayList.splice(i,1);
 				this.displayList.push(pic);
 				return true;
-			}
-			
+			}			
 			// already selected
 			return false;
 		}
@@ -210,6 +213,7 @@ App.prototype.selectImage = function(x, y){
 	this.tool.setTarget(null);
 	return false;
 };
+
 
 App.prototype.render = function(){
 	this.drawDisplayList();

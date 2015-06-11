@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h3 class="modal-title">Clip Arts</h3>
+</div>
+<div class="modal-body">
+    <ul>
+        <li ng-repeat="cat in artsCategroy">
+            <a href="javascript:void();" ng-click="ShowArtOfCat(cat)">{{cat.name}}</a>
+        </li>
+    </ul> 
+</div>
+<div class="modal-body">
+    <ul>
+        <li ng-repeat="arts in artsCollection">
+            <a href="javascript:void();" ng-click="addArtOnStage(arts)"><img style="height:auto;width:100px;" ng-src="{{arts.img}}"></a>
+        </li>
+    </ul> 
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

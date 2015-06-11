@@ -19,6 +19,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.router', 
+    'ui.bootstrap',
     'isteven-multi-select'
   ])
   .config(function($stateProvider, $urlRouterProvider){

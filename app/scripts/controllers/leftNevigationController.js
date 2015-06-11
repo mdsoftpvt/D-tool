@@ -8,7 +8,7 @@
  * Controller of the testApp
  */
 angular.module('app')
-  .controller('leftNevigationController', function ($scope) {
+  .controller('leftNevigationController', function ($scope,$modal) {
     
     $scope.modernBrowsers = [
  	{	 	name: "Opera",	maker: "Opera Software",	ticked: false	},
@@ -22,13 +22,21 @@ angular.module('app')
 	 	{	icon: "[...]/firefox-icon.png...",	name: "Firefox",	maker: "Mozilla Foundation",	ticked: true	}
 	];
 
-	$scope.addArtOnStage = function()
-	{
-		var tempId = "img" +  Math.random() * 1000
-		var myEl = angular.element( document.querySelector( '#dom' ) );
-		myEl.prepend ('<img alt="dunny" id="'+tempId+'" src="images/dunny.png" />');   
+	$scope.open = function (size) {
 		App.instance = App.create();
-		App.instance.addArt(tempId); 
-	}	
+		App.instance.deSelect(); 
+			
+	    var modalInstance = $modal.open({
+	      animation: true,
+	      templateUrl: 'views/artsBrowes.html',
+	      controller: 'ArtController',
+	      size: "lg",
+	      resolve: {
+	        items: function () {
+	          //return $scope.items;
+	        }
+	      }
+    	});
+	}
 
   });
